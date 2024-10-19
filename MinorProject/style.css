@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Luckiest Guy', sans-serif;
+    background-color: #ffefd5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #fbc2eb, #a18cd1);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Trebuchet MS', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logo img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+
+.main-header {
+    background-color: purple;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .logo img {
+    width: 150px;
+    height: auto;
+    border-radius: 100%;
+}
+
+.main-header h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.main-header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.main-header nav ul li {
+    display: inline;
+    margin: 0 15px;
+    border-radius: 0%;
+}
+
+.main-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #ff4500;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-header nav ul li a:hover {
+    background-color: #ff6347;
+    color: #f3edeb;
+}
+
+
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+    height: 80vh;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h2 {
+    font-size: 48px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(19, 16, 16, 0.5);
+}
+
+.hero p {
+    font-size: 24px;
+    color: hwb(0 38% 40%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta-btn {
+    background-color: orangered;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: purple;
+    transform: scale(1.1);
+}
+
+.features {
+    padding: 40px 20px;
+    text-align: center;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #ff4500;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffefd5;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 30%;
+    margin: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #ff6347;
+}
+
+.card p {
+    font-size: 18px;
+    color: #666;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.about {
+    padding: 50px 20px;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    text-align: center;
+}
+    
+.about h2{
+    color:#ff6347;
+    text-align: center;
+     margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.about p{
+    text-align: justify;
+    color: #333;
+    justify-content: space-around;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.about  h3{
+    color:#ff6347;
+    text-align: left;
+}
+
+.about hr{
+    color: hsl(0, 3%, 79%);
+    border-radius: 5px;
+}
+
+hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+footer {
+    background-color:peru;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+} 

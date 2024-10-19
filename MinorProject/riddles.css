@@ -1,0 +1,237 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Luckiest Guy', sans-serif;
+    background: hwb(16 20% 15%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.riddle-section {
+    background-color: hwb(10 91% 7%);
+    padding: 20px;
+    align-items: center;
+    box-shadow: 0 10px 16px rgba(15, 14, 14, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1 span {
+    color: #8a2f8a;
+    font-weight: bold;
+   
+}
+p{
+    font-size: 20px;
+    color: hsl(0, 2%, 35%);
+    text-align: center;
+    margin: 50px 0;
+    justify-content: center;
+}
+
+/*  Question Styling */
+.question {
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+/* Styling for Options */
+ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+ul li {
+    margin: 10px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+ul li input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.3);
+}
+
+/* Label Styling */
+label {
+    cursor: pointer;
+    color: #333;
+}
+
+/* Button Styling */
+.btn {
+    text-align: center;
+}
+
+button {
+    background-color: #ff6f61;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: hwb(2 2% 33%);
+}
+
+.back-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: hsl(0, 0%, 90%);
+    color: black;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 2px solid hsl(0, 0%, 80%);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: hsl(0, 0%, 70%);
+    transform: scale(1.05);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quiz-section {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+    ul li {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+/* Style for sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #eec185;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.category-list li {
+    margin: 15px 0;
+}
+
+.category-list a {
+    text-decoration: none;
+    font-size: 18px;
+    color: hsl(14, 87%, 41%);
+    font-weight: bold;
+}
+
+.category-list a:hover {
+    color: purple;
+    text-decoration: underline;
+}
+
+/* Style for sidebar */
+.rightsidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 50%;
+    background-color: #eec185;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.Operate-riddles {
+    list-style-type: none;
+    padding: 0;
+}
+
+.Operate-riddles li {
+    margin: 15px 0;
+}
+
+.Operate-riddles a {
+    text-decoration: none;
+    font-size: 18px;
+    color: hsl(14, 87%, 41%);
+    font-weight: bold;
+}
+
+.Operate-riddles a:hover {
+    color: purple;
+    text-decoration: underline;
+}
+
+/* Adjust riddle section to not overlap with sidebar */
+.riddle-section {
+    margin-left: 220px; /* Adds space to the right of the sidebar */
+    padding: 20px;
+}
+
+/* For responsive view on smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+       
+    }
+
+    .riddle-section {
+        margin-left: 0;
+    }
+}
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>login</title>
+</head>
+<style>
+    body {
+        background: hwb(2 49% 0%);
+        font-family: 'Luckiest Guy',  sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        /* Required for the back button positioning */
+    }
+
+    .login-container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 15px;
+        background-color: #ffffff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        text-align: center;
+    }
+
+    /* Styling for the heading */
+    .login-container h2 {
+        color: black;
+        font-size: 28px;
+    }
+
+    .login-container .highlight {
+        color: hsl(9, 90%, 62%);
+        font-weight: bold;
+    }
+
+    /* Styling for form labels */
+    .login-container label {
+        font-size: 18px;
+        color: #444444;
+    }
+
+    /* Styling input fields */
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #ffcc5c;
+        border-radius: 10px;
+        background-color: #fff8e7;
+        font-size: 16px;
+    }
+
+    /* Style the button */
+    .login-container button {
+        background-color: hsl(5, 89%, 56%);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .login-container button:hover {
+        background-color: hsl(19, 84%, 66%);
+        transform: scale(1.05);
+    }
+
+    /* Styling for the link */
+    .login-container a {
+        color: hwb(304 23% 65%);
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-container a:hover {
+        text-decoration: underline;
+    }
+
+    /* Additional touch: fun animation */
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .login-container button:hover {
+        animation: bounce 0.5s;
+    }
+
+    /* Style for form link */
+    .login-container p {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    /* Back Button Style */
+    .back-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: hwb(19 27% 13%);
+        color: black;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: 2px solid hsl(0, 0%, 80%);
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .back-btn:hover {
+        background-color: hsl(0, 0%, 70%);
+        transform: scale(1.05);
+    }
+</style>
+
+<body>
+    <form name="f1" action="authentication.php" onsubmit="return validation()" method="POST"> 
+
+        
+
+        <div id="login-dashboard" class="login-container">
+            <h2>Login to <span class="highlight">Learn & Fun</span></h2>
+            <!-- <form action="login.php" method="post"> -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+    </div>
+    <a class="back-btn" href="index.html">← Back</a>
+
+    <!-- <script> 
+        
+        function checkCredential() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                window.location.assign('cardsection.html');
+            } else {
+                alert("Please fill in both fields.");
+            }
+        }
+    </script> -->
+
+    <script>
+        function validation() {
+            var id = document.f1.username.value;
+            var ps = document.f1.password.value;
+            if (id.length == "" && ps.length == "") {
+                alert("User Name and Password fields are empty");
+                return false;
+            }
+            else {
+                if (id.length == "") {
+                    alert("User Name is empty");
+                    return false;
+                }
+               else if (ps.length == "") {
+                    alert("Password field is empty");
+                    return false;
+                }
+                else{
+                    window.location.assign('cardsection.html');
+                }
+            }
+        }  
+    </script>
+
+</body>
+
+</html>

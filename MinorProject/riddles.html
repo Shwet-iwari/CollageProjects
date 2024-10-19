@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Easy-riddles</title>
+</head>
+<link rel="stylesheet" href="riddles.css">
+</link>
+
+<body>
+    
+    <h1>Easy <span type="highlight">Riddles</span> for Learn & Fun</h1>
+
+    <div class="rightsidebar">
+        <ul class="Operate-riddles">
+            <li><a href="Addriddle.html">Add Riddles</a></li>
+            <li><a>Show Riddles</a></li>
+            <li><a>Change Riddles</a></li>
+            <li><a>Delete riddles</a></li>
+            
+        </ul>
+    </div>
+    
+     <section>
+
+        <div class="sidebar">
+            <ul class="category-list">
+                <li><a href="Funnyridd.html">Funny</a></li>
+                <li><a href="trickyriddle.html">Tricky</a></li>
+                <li><a href="Animalridd.html">Animal</a></li>
+                <li><a href="riddles.html">Easy</a></li>
+                <li><a href="MathsRidd.html">Maths</a></li>
+            </ul>
+        </div>
+
+    <div class="riddle-section">
+        <div id="riddle">
+            <h2 class="question" id="question">Riddle Question</h2>
+            <hr />
+            <ul>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="a" />
+                    <label for="a" id="option_1">riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="b" />
+                    <label for="b" id="option_2"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="c" />
+                    <label for="c" id="option_3"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="d" />
+                    <label for="d" id="option_4"> riddles Option</label>
+                </li>
+            </ul>
+
+            <hr />
+            <div class="btn">
+                <button type="submit" id="submit">Submit</button>
+                <button type="button" id="reset">Reset Riddles</button> <!-- Reset Button -->
+            </div>
+        </div>
+    </div>
+    <a class="back-btn" href="cardsection.html">← Back</a>
+</body>
+
+<script>
+    // Quiz-Data
+    const quest = [
+        {
+            question: "How many months of the year have 28 days?",
+            options: [
+                "All months of year",
+                "4",
+                "6",
+                "1",
+            ],
+            correct: 0,
+        },
+        {
+            question: "What has hands and a face, but can’t hold anything or smile?",
+            options: [
+                "A Human",
+                "A Clock",
+                "A Watch",
+                "An Animal"
+            ],
+            correct: 1,
+        },
+        {
+            question: "What has a thumb and four fingers, but is not a hand?",
+            options: [
+                "Glove",
+                "Clock",
+                "Hand",
+                "Human",
+            ],
+            correct: 0,
+        },
+        {
+            question: "What has one head and four legs?",
+            options: [
+                "TABLE",
+                "BENCH",
+                "SWING",
+                "BED",
+            ],
+            correct: 3,
+        },
+        {
+            question: "What can you catch, but not throw?",
+            options: [
+                "A Ball",
+                "Cold",
+                "A Fielder",
+                "A Police",
+            ],
+            correct: 1,
+        },
+        {
+            question: "It belongs to you, but your friends use it more. What is it?",
+            options: [
+                "Your Pen",
+                "Your Book",
+                "Your Name",
+                "Your House",
+            ],
+            correct: 2
+        },
+        {
+            question: "If you don’t keep me, I’ll break. What am I?",
+            options: [
+                "A Glass",
+                "A Mirror",
+                "A Love",
+                "A Promise",
+            ],
+            correct: 3
+        },
+        {
+            question: "I have a tail and a head, but no body. What am I?",
+            options: [
+                "An Ant",
+                "A Coin",
+                "A Toy",
+                "A Deck",
+            ],
+            correct: 1
+        },
+        {
+            question: "What has thirteen hearts, but no other organs?",
+            options: [
+                "An Anaconda",
+                "A Deck of Cards",
+                "Humans",
+                "A Donkey",
+            ],
+            correct: 1
+        },
+        {
+            question: "Which word becomes shorter when you add 2 letters to it?",
+            options: [
+                "Shot",
+                "Short",
+                "Shit",
+                "Shut",
+            ],
+            correct: 1
+        },
+    ];
+
+    // Initialization
+    const quiz = document.querySelector("#riddle");
+    const answerEle = document.querySelectorAll(".answer");
+    const [questionEle, option_1, option_2, option_3, option_4] =
+        document.querySelectorAll("#question, #option_1, #option_2, #option_3, #option_4");
+
+    const submitBtn = document.getElementById("submit");
+    const resetBtn = document.getElementById("reset");
+
+    // Add event listener to the back button for confirmation
+    const backBtn = document.getElementById("backBtn");
+
+
+    let currentAns = 0;
+    let score = 0;
+
+    // Shuffle array function
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+
+    // Load the riddle
+    const loadRidd = () => {
+        const { question, options } = quest[currentAns];
+        questionEle.innerText = `${currentAns + 1}: ${question}`;
+
+        options.forEach(
+            (curOption, index) => (window[`option_${index + 1}`].innerText = curOption)
+        );
+    };
+
+    // Load the first riddle
+    loadRidd();
+
+    // Get the selected option
+    const getSelectedOption = () => {
+        let answerElement = Array.from(answerEle);
+        return answerElement.findIndex((curEle) => curEle.checked);
+    };
+
+    // Deselect all answers
+    const deselectedAnswer = () => {
+        return answerEle.forEach((currElem) => currElem.checked = false);
+    };
+
+    // Submit button click event
+    submitBtn.addEventListener("click", () => {
+        const selectedOptionIndex = getSelectedOption();
+
+        // Show error if no option is selected
+        if (selectedOptionIndex === -1) {
+            alert("Please select an option before submitting!");
+            return;
+        }
+
+        // // Check if the answer is correct
+        // if (selectedOptionIndex === quest[currentAns].correct) {
+        //     alert("Correct Answer! 🎉");
+        //     score = score + 1;
+        // } else {
+        //     alert("Wrong Answer! ❌");
+        // }
+
+        currentAns++;
+
+        if (currentAns < quest.length) {
+            deselectedAnswer();
+            loadRidd();
+        } else {
+            riddle.innerHTML = `
+            <div class="result">
+                <h2>🏆 Your Score: ${score}/${quest.length} Correct Answers</h2>
+                <p>Congratulation on completing the riddles! 🥳</p>
+                <button class="reload-button" onclick="location.reload()">Play Again</button>
+            </div>`;
+        }
+    });
+
+    // Reset button click event to shuffle riddles and restart
+    resetBtn.addEventListener("click", () => {
+        shuffleArray(quest);  // Shuffle the riddles
+        currentAns = 0;
+        score = 0;
+        deselectedAnswer();
+        loadRidd();  // Load the first riddle again
+    });
+
+    
+    backBtn.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent default behavior
+
+        // Show confirmation dialog
+        const confirmQuit = confirm("Are you sure you want to quit the riddle? Your progress will be lost.");
+
+        if (confirmQuit) {
+            // If the user confirms, redirect to the cardsection.html page
+            window.location.href = backBtn.getAttribute('cardsection.html');
+        }
+    });
+
+    
+    // const msg = document.querySelectorAll('#back-btn');
+
+    // msg.addEventListener("click", () => {
+    //     if (msg == true) {
+    //         alert(" Are u sure to quit the riddle ");
+    //     }
+    // });
+</script>
+
+
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Tricky Riddles</title>
+</head>
+<link rel="stylesheet" href="riddles.css">
+
+<body>
+
+    <h1><span type="highlight">Tricky Riddles</span> for HOTS</h1>
+
+     <section>
+
+        <div class="sidebar">
+            <ul class="category-list">
+                <li><a href="riddles.html">Easy</a></li>
+                <li><a href="trickyriddle.html">Tricky</a></li>
+                <li><a href="Animalridd.html">Animal</a></li>
+                <li><a href="Funnyridd.html">Funny</a></li>
+                <li><a href="MathsRidd.html">Maths</a></li>
+            </ul>
+        </div>
+
+    <div class="riddle-section">
+        <div id="riddle">
+            <h2 class="question" id="question">Riddle Question</h2>
+            <hr />
+            <ul>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="a" />
+                    <label for="a" id="option_1">riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="b" />
+                    <label for="b" id="option_2"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="c" />
+                    <label for="c" id="option_3"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="d" />
+                    <label for="d" id="option_4"> riddles Option</label>
+                </li>
+            </ul>
+
+            <hr />
+            <div class="btn">
+                <button type="submit" id="submit">Submit</button>
+                <button type="button" id="reset">Reset Riddles</button> 
+            </div>
+        </div>
+    </div>
+
+</section>
+
+    <a class="back-btn" href="cardsection.html">← Back</a>
+
+</body>
+<script>
+
+    //Quiz-Data
+    const quest = [
+        {
+            question: "What goes up but never comes back down ? ",
+            options: [
+                "Weight",
+                "Date",
+                "Month",
+                "Year",
+            ],
+            correct: 3,
+        },
+        {
+            question: "  What is full of holes but still holds water?",
+            options: [
+                "A Strainer",
+                "A Sponge",
+                "A Ladle",
+                "A Sieve",
+            ],
+            correct: 1,
+        },
+        {
+            question: "What starts with a ‘P’, ends with an ‘E’, and has thousands of letters?",
+            options: [
+                "A Post Office",
+                "A Police",
+                "A Purse",
+                "A Package",
+            ],
+            correct: 0,
+        },
+        {
+            question: "Give me a drink, and I will die. Feed me, and I'll get bigger. What am I?",
+            options: [
+                "A Balloon",
+                "A Packet",
+                "A Fire",
+                "A Bag",
+            ],
+            correct: 2,
+        },
+        {
+            question: "I’m always on the dinner table, but you don’t get to eat me. What am I?",
+            options: [
+                "Butter",
+                "Pickles",
+                "Salts",
+                "Plates & Silverware",
+            ],
+            correct: 3,
+        },
+        {
+            question: " They fly at night; you'd better run. These winged things are not much fun.",
+            options: [
+                " Birds",
+                " Eagles",
+                " Bats",
+                " Witches",
+            ],
+            correct: 2
+        },
+        {
+            question: "They grow much faster than bamboo. Take care, or they'll come after you. ",
+            options: [
+                " Palm",
+                "Plants",
+                "Tree",
+                "Ants",
+            ],
+            correct: 1
+        },
+        {
+            question: "Don't be fooled; it isn't thunder. Staying put would be a blunder.",
+            options: [
+                "Stampede",
+                " Horses",
+                "Earthquake",
+                " Arrows",
+            ],
+            correct: 0
+        },
+        {
+
+            question: "A _____ from the darkest wild makes you feel just like a child.",
+            options: [
+                "Rider",
+                "Hunter",
+                "Toy",
+                "Thrower",
+            ],
+            correct: 1
+        },
+        {
+            question: "Beware the ground on which you stand. The floor is quicker than the sand.",
+            options: [
+                "Ocean",
+                "Ground",
+                "Quicksand",
+                "Storm",
+            ],
+            correct: 2
+        },
+        {
+            question: "A house has 4 walls. All of the walls are facing south, and a bear is circling the house. What color is the bear?",
+            options: [
+                "Pink",
+                "Purple",
+                "White",
+                "Orange",
+            ],
+            correct: 2
+        },
+        {
+            question: "What is as light as a feather, but even the world’s strongest man couldn’t hold it for more than a minute?",
+            options: [
+                "A feather",
+                "A breath",
+                "A Piece of Paper",
+                "A Plastic Paper",
+            ],
+            correct: 1
+        },
+        {
+            question: "What is so delicate that saying its name breaks it?",
+            options: [
+                "Silence",
+                "Voice",
+                "Quite",
+                "Silent",
+            ],
+            correct: 0
+        },
+        {
+            question: "Which weighs more, a pound of feathers or a pound of bricks?",
+            options: [
+                "None",
+                "Both",
+                "Feathers",
+                "Bricks",
+            ],
+            correct: 1
+        },
+        {
+            question: "What kind of room has no walls, door or windows?",
+            options: [
+                "A Washroom",
+                "A mushroom",
+                "A Bedroom",
+                "A Brickroom",
+            ],
+            correct: 1
+        },
+        {
+            question: " I’m orange, I wear a green hat and I sound like a parrot. What am I?",
+            options: [
+                "A Capsicum",
+                "A Chilli",
+                "A Orange",
+                "A Carrot",
+            ],
+            correct: 3
+        },
+        {
+            question: "A man was driving his truck. His lights were not on. The moon was not out. Up ahead, a woman was crossing the street. How did he see her?",
+            options: [
+                "Its Dark",
+                "Sunny Day",
+                "Morning",
+                "Night",
+            ],
+            correct: 1
+        },
+        {
+            question: "We see it once in a year, twice in a week, and never in a day. What is it?",
+            options: [
+                "The Letter Y",
+                "The Letter A",
+                "The Letter E",
+                "The Letter W",
+            ],
+            correct: 2
+        },
+        {
+            question: "What is greater than God,more evil than the devil,the poor have it,the rich need it,and if you eat it, you'll die?",
+            options: [
+                "Money",
+                "Nothing",
+                "Love",
+                "Patience",
+            ],
+            correct: 1
+        },
+        {
+            question: "Who makes it, has no need of it.Who buys it, has no use for it.Who uses it can neither see nor feel it.What is it?",
+            options: [
+                "A Coffin",
+                "A car",
+                "A House",
+                "A Boat",
+            ],
+            correct: 0
+        },
+
+    ];
+
+    // Initialization
+    const quiz = document.querySelector("#riddle");
+    const answerEle = document.querySelectorAll(".answer");
+    const [questionEle, option_1, option_2, option_3, option_4] =
+        document.querySelectorAll("#question, #option_1, #option_2, #option_3, #option_4");
+
+    const submitBtn = document.getElementById("submit");
+    const resetBtn = document.getElementById("reset");
+
+    let currentAns = 0;
+    let score = 0;
+
+    // Shuffle array function
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+
+    // Load the riddle
+    const loadRidd = () => {
+        const { question, options } = quest[currentAns];
+        questionEle.innerText = `${currentAns + 1}: ${question}`;
+
+        options.forEach(
+            (curOption, index) => (window[`option_${index + 1}`].innerText = curOption)
+        );
+    };
+
+    // Load the first riddle
+    loadRidd();
+
+    // Get the selected option
+    const getSelectedOption = () => {
+        let answerElement = Array.from(answerEle);
+        return answerElement.findIndex((curEle) => curEle.checked);
+    };
+
+    // Deselect all answers
+    const deselectedAnswer = () => {
+        return answerEle.forEach((currElem) => currElem.checked = false);
+    };
+
+    // Submit button click event
+    submitBtn.addEventListener("click", () => {
+        const selectedOptionIndex = getSelectedOption();
+
+        // Show error if no option is selected
+        if (selectedOptionIndex === -1) {
+            alert("Please select an option before submitting!");
+            return;
+        }
+
+        // Check if the answer is correct
+        if (selectedOptionIndex === quest[currentAns].correct) {
+            alert("Correct Answer! 🎉");
+            score = score + 1;
+        } else {
+            alert("Wrong Answer! ❌");
+        }
+
+        currentAns++;
+
+        if (currentAns < quest.length) {
+            deselectedAnswer();
+            loadRidd();
+        } else {
+            riddle.innerHTML = `
+            <div class="result">
+                <h2>🏆 Your Score: ${score}/${quest.length} Correct Answers</h2>
+                <p>Congratulation on completing the riddles! 🥳</p>
+                <button class="reload-button" onclick="location.reload()">Play Again</button>
+            </div>`;
+        }
+    });
+
+    // Reset button click event to shuffle riddles and restart
+    resetBtn.addEventListener("click", () => {
+        shuffleArray(quest);  // Shuffle the riddles
+        currentAns = 0;
+        score = 0;
+        deselectedAnswer();
+        loadRidd();  // Load the first riddle again
+    });
+
+</script>
+
+</html>

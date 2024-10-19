@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Kids Tic-Tac-Toe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', sans-serif;
+        }
+
+        body {
+            font-family: 'Luckiest Guy' , sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #fbc2eb, #a18cd1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6b6b;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #ffeb3b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3f51b5;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .cell:hover {
+            transform: scale(1.1);
+            background-color: #ff9800;
+        }
+
+        .cell.taken {
+            pointer-events: none;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 2rem;
+            color: #ff6b6b;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+     /* Back Button Style */
+     .back-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: hwb(19 27% 13%);
+        color: black;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: 2px solid hsl(0, 0%, 80%);
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .back-btn:hover {
+        background-color: hsl(0, 0%, 70%);
+        transform: scale(1.05);
+    }
+    </style>
+</head>
+<body>
+
+    <div id="game">
+        <h1>Tic-Tac-Toe</h1>
+        <div id="board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <div id="result"></div>
+        <button id="restartBtn">Restart Game</button>
+    </div>
+    <!-- Back Button -->
+   <a class="back-btn" href="cardsection.html">← Back</a>
+
+    <script>
+        const cells = document.querySelectorAll('[data-cell]');
+        const resultElement = document.getElementById('result');
+        const restartButton = document.getElementById('restartBtn');
+        let currentPlayer = 'X';
+        let gameActive = true;
+
+        const winningCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        function handleClick(e) {
+            const cell = e.target;
+            const index = Array.from(cells).indexOf(cell);
+
+            if (cell.classList.contains('taken') || !gameActive) return;
+
+            cell.textContent = currentPlayer;
+            cell.classList.add('taken');
+            cell.style.backgroundColor = currentPlayer === 'X' ? '#ffc107' : '#8bc34a';
+
+            if (checkWin(currentPlayer)) {
+                resultElement.textContent = `${currentPlayer} Wins! 🎉`;
+                gameActive = false;
+            } else if (isDraw()) {
+                resultElement.textContent = "It's a Draw!";
+                gameActive = false;
+            } else {
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            }
+        }
+
+        function checkWin(player) {
+            return winningCombinations.some(combination => {
+                return combination.every(index => {
+                    return cells[index].textContent === player;
+                });
+            });
+        }
+
+        function isDraw() {
+            return Array.from(cells).every(cell => {
+                return cell.textContent === 'X' || cell.textContent === 'O';
+            });
+        }
+
+        function restartGame() {
+            currentPlayer = 'X';
+            gameActive = true;
+            resultElement.textContent = '';
+            cells.forEach(cell => {
+                cell.textContent = '';
+                cell.classList.remove('taken');
+                cell.style.backgroundColor = '#ffeb3b';
+            });
+        }
+
+        cells.forEach(cell => {
+            cell.addEventListener('click', handleClick);
+        });
+
+        restartButton.addEventListener('click', restartGame);
+    </script>
+
+</body>
+</html>

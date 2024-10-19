@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Easy-riddles</title>
+</head>
+<link rel="stylesheet" href="riddles.css">
+</link>
+
+<body>
+    
+    <h1><span type="highlight"> Funny Riddles</span></h1>
+    <!-- <p>Learn & fun easy Riddles</p> --> 
+     <section>
+
+        <div class="sidebar">
+            <ul class="category-list">
+                <li><a href="Funnyridd.html">Funny</a></li>
+                <li><a href="trickyriddle.html">Tricky</a></li>
+                <li><a href="Animalridd.html">Animal</a></li>
+                <li><a href="riddles.html">Easy</a></li>
+                <li><a href="MathsRidd.html">Maths</a></li>
+            </ul>
+        </div>
+
+    <div class="riddle-section">
+        <div id="riddle">
+            <h2 class="question" id="question">Riddle Question</h2>
+            <hr />
+            <ul>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="a" />
+                    <label for="a" id="option_1">riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="b" />
+                    <label for="b" id="option_2"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="c" />
+                    <label for="c" id="option_3"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="d" />
+                    <label for="d" id="option_4"> riddles Option</label>
+                </li>
+            </ul>
+
+            <hr />
+            <div class="btn">
+                <button type="submit" id="submit">Submit</button>
+                <button type="button" id="reset">Reset Riddles</button> 
+            </div>
+        </div>
+    </div>
+    <a class="back-btn" href="cardsection.html">← Back</a>
+</body>
+<script>
+    //Quiz-Data
+
+    const quest = [
+    {
+        question: "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
+        options: [
+            "A Ghost",
+            "An Echo",
+            "A Bird",
+            "A Shadow",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What has keys but can't open locks?",
+        options: [
+            "A Piano",
+            "A Computer",
+            "A Map",
+            "A Door",
+        ],
+        correct: 0,
+    },
+    {
+        question: "The more you take, the more you leave behind. What am I?",
+        options: [
+            "Time",
+            "Footsteps",
+            "Memories",
+            "Sleep",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What comes down but never goes up?",
+        options: [
+            "Rain",
+            "Age",
+            "Temperature",
+            "A Kite",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What has an eye but cannot see?",
+        options: [
+            "A Needle",
+            "A Potato",
+            "A Storm",
+            "A Camera",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What gets wetter as it dries?",
+        options: [
+            "A Towel",
+            "A Sponge",
+            "A Raindrop",
+            "A Cloud",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What has many teeth but cannot bite?",
+        options: [
+            "A Shark",
+            "A Comb",
+            "A Zipper",
+            "A Pencil",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What runs around the yard without moving?",
+        options: [
+            "A Fence",
+            "A Dog",
+            "A Bird",
+            "A Squirrel",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What has cities, but no houses; forests, but no trees; and rivers, but no water?",
+        options: [
+            "A Puzzle",
+            "A Map",
+            "A Globe",
+            "A Book",
+        ],
+        correct: 1,
+    },
+    {
+        question: "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+        options: [
+            "A Person",
+            "A Candle",
+            "A Tree",
+            "A Shadow",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What has to be broken before you can use it?",
+        options: [
+            "A Glow Stick",
+            "An Egg",
+            "A Lock",
+            "A Seal",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What can travel around the world while staying in the same spot?",
+        options: [
+            "A Clock",
+            "A Satellite",
+            "A Stamp",
+            "A Compass",
+        ],
+        correct: 2,
+    },
+    {
+        question: "What has a bed but never sleeps, can run but never walks, and has a bank but no money?",
+        options: [
+            "A Train",
+            "A River",
+            "A Robot",
+            "A Clock",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What is always in front of you but can’t be seen?",
+        options: [
+            "Air",
+            "The Future",
+            "Your Nose",
+            "A Shadow",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What is so fragile that saying its name breaks it?",
+        options: [
+            "Glass",
+            "A Promise",
+            "Silence",
+            "Hope",
+        ],
+        correct: 2,
+    },
+    {
+        question: "What has one eye but can’t see?",
+        options: [
+            "A Needle",
+            "A Cyclops",
+            "A Potato",
+            "A Coin",
+        ],
+        correct: 0,
+    },
+    {
+        question: "I’m light as a feather, yet the strongest person can’t hold me for five minutes. What am I?",
+        options: [
+            "Breath",
+            "A Cloud",
+            "A Balloon",
+            "A Dream",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What has a bottom at the top?",
+        options: [
+            "A Chair",
+            "A Mountain",
+            "Your Legs",
+            "A Bed",
+        ],
+        correct: 2,
+    },
+    {
+        question: "What can you keep after giving to someone?",
+        options: [
+            "A Secret",
+            "A Gift",
+            "A Hug",
+            "A Compliment",
+        ],
+        correct: 0,
+    },
+    {
+        question: "The more of this there is, the less you see. What is it?",
+        options: [
+            "Light",
+            "Darkness",
+            "Fog",
+            "Snow",
+        ],
+        correct: 1,
+    },
+    {
+        question: "What has a head, a tail, is brown, and has no legs?",
+        options: [
+            "A Coin",
+            "A Snake",
+            "A Sock",
+            "A Caterpillar",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What goes up but never comes down?",
+        options: [
+            "A Kite",
+            "Age",
+            "The Sun",
+            "A Balloon",
+        ],
+        correct: 1,
+    }
+];
+
+
+// Initialization
+const quiz = document.querySelector("#riddle");
+    const answerEle = document.querySelectorAll(".answer");
+    const [questionEle, option_1, option_2, option_3, option_4] =
+        document.querySelectorAll("#question, #option_1, #option_2, #option_3, #option_4");
+
+    const submitBtn = document.getElementById("submit");
+    const resetBtn = document.getElementById("reset");
+
+    let currentAns = 0;
+    let score = 0;
+
+    // Shuffle array function
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+
+    // Load the riddle
+    const loadRidd = () => {
+        const { question, options } = quest[currentAns];
+        questionEle.innerText = `${currentAns + 1}: ${question}`;
+
+        options.forEach(
+            (curOption, index) => (window[`option_${index + 1}`].innerText = curOption)
+        );
+    };
+
+    // Load the first riddle
+    loadRidd();
+
+    // Get the selected option
+    const getSelectedOption = () => {
+        let answerElement = Array.from(answerEle);
+        return answerElement.findIndex((curEle) => curEle.checked);
+    };
+
+    // Deselect all answers
+    const deselectedAnswer = () => {
+        return answerEle.forEach((currElem) => currElem.checked = false);
+    };
+
+    // Submit button click event
+    submitBtn.addEventListener("click", () => {
+        const selectedOptionIndex = getSelectedOption();
+
+        // Show error if no option is selected
+        if (selectedOptionIndex === -1) {
+            alert("Please select an option before submitting!");
+            return;
+        }
+
+        // Check if the answer is correct
+        if (selectedOptionIndex === quest[currentAns].correct) {
+            alert("Correct Answer! 🎉");
+            score = score + 1;
+        } else {
+            alert("Wrong Answer! ❌");
+        }
+
+        currentAns++;
+
+        if (currentAns < quest.length) {
+            deselectedAnswer();
+            loadRidd();
+        } else {
+            riddle.innerHTML = `
+            <div class="result">
+                <h2>🏆 Your Score: ${score}/${quest.length} Correct Answers</h2>
+                <p>Congratulation on completing the riddles! 🥳</p>
+                <button class="reload-button" onclick="location.reload()">Play Again</button>
+            </div>`;
+        }
+    });
+
+    // Reset button click event to shuffle riddles and restart
+    resetBtn.addEventListener("click", () => {
+        shuffleArray(quest);  // Shuffle the riddles
+        currentAns = 0;
+        score = 0;
+        deselectedAnswer();
+        loadRidd();  // Load the first riddle again
+    });
+
+</script>
+
+</html>

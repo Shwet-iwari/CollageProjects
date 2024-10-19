@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations 4 Kids - Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Luckiest Guy', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fbc2eb 40%, #a18cd1 100%);
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styling */
+        .container {
+            background-color: #663399;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .container ul li {
+            display: inline-block;
+        }
+
+        .container ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            background-color: #ff6347;
+            padding: 8px 15px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .container ul li a:hover {
+            background-color: #ffa07a;
+            transform: scale(1.05);
+        }
+
+        /* Main Body */
+        .body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            gap: 20px;
+        }
+
+        .body h2 {
+            font-size: 2.5rem;
+            color: #663399;
+            margin-bottom: 20px;
+        }
+
+        .slides {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px; /* Adjust this to control the space between videos */
+            padding: 0 20px;
+        }
+
+        .slides video {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin: 10px 0; /* Additional margin for vertical space */
+        }
+
+        .slides video:hover {
+            transform: scale(1.05);
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #ff4500;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 2rem;
+            }
+
+            .container ul li a {
+                font-size: 1rem;
+                padding: 5px 10px;
+            }
+
+            .body {
+                padding: 20px;
+            }
+
+            .slides {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Animations 4 Kids</h1>
+            <ul>
+                <li><a href="Animation.html">Science</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="Animal.html">Animal</a></li>
+                <li><a href="Space.html">Space</a></li>
+                <li><a href="Fun-Facts.html">Fun-Facts</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="body">
+        <h2>Fun & Facts</h2> <!-- Added heading here -->
+        <div class="slides">
+            <video src="Videos/fun1.mp4" controls autoplay muted></video>
+            <video src="Videos/fun2.mp4" controls  muted></video>
+            <video src="Videos/fun1.mp4" controls  muted></video>
+            <video src="Videos/fun2.mp4" controls  muted></video>
+            <video src="Videos/fun1.mp4" controls  muted></video>
+            <video src="Videos/fun2.mp4" controls  muted></video>
+        </div>
+    </div>
+
+    <a class="back-btn" href="cardsection.html">← Back</a>
+</body>
+</html>

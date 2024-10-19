@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Maths-riddles</title>
+</head>
+<link rel="stylesheet" href="riddles.css">
+</link>
+
+<body>
+    
+    <h1><span type="highlight">Maths Riddles</span> for Learn & Fun</h1>
+    <!-- <p>Learn & fun easy Riddles</p> --> 
+     <section>
+
+        <div class="sidebar">
+            <ul class="category-list">
+                <li><a href="Funnyridd.html">Funny</a></li>
+                <li><a href="trickyriddle.html">Tricky</a></li>
+                <li><a href="Animalridd.html">Animal</a></li>
+                <li><a href="riddles.html">Easy</a></li>
+                <li><a href="MathsRidd.html">Maths</a></li>
+            </ul>
+        </div>
+
+    <div class="riddle-section">
+        <div id="riddle">
+            <h2 class="question" id="question">Riddle Question</h2>
+            <hr />
+            <ul>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="a" />
+                    <label for="a" id="option_1">riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="b" />
+                    <label for="b" id="option_2"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="c" />
+                    <label for="c" id="option_3"> riddles Option</label>
+                </li>
+
+                <li>
+                    <input type="radio" name="answer" class="answer" id="d" />
+                    <label for="d" id="option_4"> riddles Option</label>
+                </li>
+            </ul>
+
+            <hr />
+            <div class="btn">
+                <button type="submit" id="submit">Submit</button>
+                <button type="button" id="reset">Reset Riddles</button> 
+            </div>
+        </div>
+    </div>
+    <a class="back-btn" href="cardsection.html">← Back</a>
+</body>
+<script>
+    //Quiz-Data
+    const quest = [
+    {
+        question: "I am an odd number. Take away one letter, and I become even. What number am I?",
+        options: [
+            "Five",
+            "Seven",
+            "Nine",
+            "Eleven",
+        ],
+        correct: 0,
+    },
+    {
+        question: "If two’s company and three’s a crowd, what are four and five?",
+        options: [
+            "A Party",
+            "A Crowd",
+            "Nine",
+            "Seven",
+        ],
+        correct: 2,
+    },
+    {
+        question: "What three positive numbers give the same result when multiplied and added together?",
+        options: [
+            "0, 1, 2",
+            "1, 2, 3",
+            "2, 2, 2",
+            "3, 3, 3",
+        ],
+        correct: 1,
+    },
+    {
+        question: "A grandfather, two fathers, and two sons went to the movie theater together and bought one ticket each. How many tickets did they buy?",
+        options: [
+            "5",
+            "3",
+            "4",
+            "6",
+        ],
+        correct: 1,
+    },
+    {
+        question: "I add five to nine, and get two. The answer is correct, but how?",
+        options: [
+            "It's a trick question",
+            "I am using military time",
+            "It's impossible",
+            "Math is broken",
+        ],
+        correct: 1,
+    },
+    {
+        question: "Which weighs more: a pound of feathers or a pound of bricks?",
+        options: [
+            "Feathers",
+            "Bricks",
+            "Both weigh the same",
+            "Depends on gravity",
+        ],
+        correct: 2,
+    },
+    {
+        question: "How many sides does a circle have?",
+        options: [
+            "0",
+            "2",
+            "1",
+            "Infinite",
+        ],
+        correct: 1,
+    },
+    {
+        question: "I am a number. When you add the letter 'G', I become something that you can eat. What number am I?",
+        options: [
+            "One",
+            "Seven",
+            "Eight",
+            "Six",
+        ],
+        correct: 2,
+    },
+    {
+        question: "If you multiply this number by any other number, the answer will always be the same. What number is it?",
+        options: [
+            "1",
+            "0",
+            "10",
+            "100",
+        ],
+        correct: 1,
+    },
+    {
+        question: "I am a number less than 100, and the sum of my digits is nine. My tens digit is twice my ones digit. What number am I?",
+        options: [
+            "36",
+            "72",
+            "81",
+            "45",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What number is 3 more than the number that is double half of one hundred?",
+        options: [
+            "53",
+            "50",
+            "3",
+            "8",
+        ],
+        correct: 0,
+    },
+    {
+        question: "If there are 4 apples and you take away 3, how many do you have?",
+        options: [
+            "4",
+            "3",
+            "1",
+            "0",
+        ],
+        correct: 1,
+    },
+    {
+        question: "How many times can you subtract 10 from 100?",
+        options: [
+            "10",
+            "1",
+            "5",
+            "Infinite",
+        ],
+        correct: 1,
+    },
+    {
+        question: "If you have me, you want to share me. If you share me, you don’t have me. What am I?",
+        options: [
+            "Love",
+            "Money",
+            "A Secret",
+            "Time",
+        ],
+        correct: 2,
+    },
+    {
+        question: "A boy was 8 years old on his last birthday and will be 10 on his next birthday. How is this possible?",
+        options: [
+            "He skipped a year",
+            "He is born on February 29th",
+            "Time travel",
+            "It's a mistake",
+        ],
+        correct: 1,
+    },
+    {
+        question: "How can you make the number 7 even without addition, subtraction, multiplication, or division?",
+        options: [
+            "Remove the S",
+            "Add 1",
+            "It’s a trick question",
+            "You can't",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What’s the smallest positive number that is evenly divisible by both 2 and 3?",
+        options: [
+            "1",
+            "3",
+            "6",
+            "12",
+        ],
+        correct: 2,
+    },
+    {
+        question: "If five cats can catch five mice in five minutes, how many cats does it take to catch 100 mice in 100 minutes?",
+        options: [
+            "5",
+            "100",
+            "25",
+            "50",
+        ],
+        correct: 0,
+    },
+    {
+        question: "There is a house with four walls. All of the walls are facing south. If a bear walks past the house, what color is the bear?",
+        options: [
+            "White",
+            "Brown",
+            "Black",
+            "Polar",
+        ],
+        correct: 0,
+    },
+    {
+        question: "What is 2 and 2, and 2 makes?",
+        options: [
+            "6",
+            "8",
+            "4",
+            "22",
+        ],
+        correct: 3,
+    },
+];
+
+
+// Initialization
+const quiz = document.querySelector("#riddle");
+    const answerEle = document.querySelectorAll(".answer");
+    const [questionEle, option_1, option_2, option_3, option_4] =
+        document.querySelectorAll("#question, #option_1, #option_2, #option_3, #option_4");
+
+    const submitBtn = document.getElementById("submit");
+    const resetBtn = document.getElementById("reset");
+
+    let currentAns = 0;
+    let score = 0;
+
+    // Shuffle array function
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+
+    // Load the riddle
+    const loadRidd = () => {
+        const { question, options } = quest[currentAns];
+        questionEle.innerText = `${currentAns + 1}: ${question}`;
+
+        options.forEach(
+            (curOption, index) => (window[`option_${index + 1}`].innerText = curOption)
+        );
+    };
+
+    // Load the first riddle
+    loadRidd();
+
+    // Get the selected option
+    const getSelectedOption = () => {
+        let answerElement = Array.from(answerEle);
+        return answerElement.findIndex((curEle) => curEle.checked);
+    };
+
+    // Deselect all answers
+    const deselectedAnswer = () => {
+        return answerEle.forEach((currElem) => currElem.checked = false);
+    };
+
+    // Submit button click event
+    submitBtn.addEventListener("click", () => {
+        const selectedOptionIndex = getSelectedOption();
+
+        // Show error if no option is selected
+        if (selectedOptionIndex === -1) {
+            alert("Please select an option before submitting!");
+            return;
+        }
+
+        // Check if the answer is correct
+        if (selectedOptionIndex === quest[currentAns].correct) {
+            alert("Correct Answer! 🎉");
+            score = score + 1;
+        } else {
+            alert("Wrong Answer! ❌");
+        }
+
+        currentAns++;
+
+        if (currentAns < quest.length) {
+            deselectedAnswer();
+            loadRidd();
+        } else {
+            riddle.innerHTML = `
+            <div class="result">
+                <h2>🏆 Your Score: ${score}/${quest.length} Correct Answers</h2>
+                <p>Congratulation on completing the riddles! 🥳</p>
+                <button class="reload-button" onclick="location.reload()">Play Again</button>
+            </div>`;
+        }
+    });
+
+    // Reset button click event to shuffle riddles and restart
+    resetBtn.addEventListener("click", () => {
+        shuffleArray(quest);  // Shuffle the riddles
+        currentAns = 0;
+        score = 0;
+        deselectedAnswer();
+        loadRidd();  // Load the first riddle again
+    });
+
+</script>
+
+</html>

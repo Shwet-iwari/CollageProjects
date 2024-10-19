@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Luckiest Guy', sans-serif;
+        background-color: #ffefd5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #fbc2eb, #a18cd1);
+        scroll-behavior: smooth;
+    }
+
+    header h2 {
+        font-family: 'Luckiest Guy', sans-serif;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        align-items: center;
+    }
+
+    .logo img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    .main-header {
+        background-color: purple;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-header .logo img {
+        width: 150px;
+        height: auto;
+        border-radius: 100%;
+    }
+
+    .main-header h1 {
+        color: white;
+        font-size: 36px;
+        margin-bottom: 10px;
+        font-family: 'Luckiest Guy', cursive;
+    }
+
+    .form-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+        text-align: center;
+        color:orangered;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .form-group input[type="submit"] {
+        background-color: orangered;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s;
+    }
+
+    .form-group input[type="submit"]:hover {
+        background-color: purple;
+    }
+
+</style>
+
+<body id="main-body">
+    <header class="main-header">
+        <div class="logo">
+            <img src="Photos/logo.jpg" alt="Fun for Kids Logo">
+        </div>
+        <h1>Fun for Kids!</h1>
+    </header>
+
+    <div class="form-container">
+        <h2>Riddle Submission Form</h2>
+        <form action="Addriddle.php" method="post">
+
+            <div class="form-group">
+                <label for="qid">Question ID</label>
+                <input type="text" id="qid" name="quesid" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quest">Question</label>
+                <input type="text" id="quest" name="question" required>
+            </div>
+
+            <div class="form-group">
+                <label for="opt1">Option 1:</label>
+                <input type="text" id="opt1" name="option1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="opt2">Option 2:</label>
+                <input type="text" id="opt2" name="option2" required>
+            </div>
+
+            <div class="form-group">
+                <label for="opt3">Option 3:</label>
+                <input type="text" id="opt3" name="option3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="opt4">Option 4:</label>
+                <input type="text" id="opt4" name="option4" required>
+            </div>
+
+            <div class="form-group">
+                <label for="crrt">Correct Answer:</label>
+                <input type="text" id="correct" name="correct" required>
+            </div>
+
+            <div class="form-group" id="form-group">
+                <input type="submit" value="Submit Riddle">
+            </div>
+
+        </form>
+    </div>
+<script>
+
+</script>
+</body>
+
+</html>
